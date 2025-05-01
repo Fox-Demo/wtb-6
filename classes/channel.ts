@@ -1,13 +1,7 @@
 export abstract class SubscriberObserver {
-  private _channels: Channel[] = [];
-
   constructor(private _name: string) {}
 
   abstract notify(from: Channel, video: Video): void;
-
-  get channels(): Channel[] {
-    return this._channels;
-  }
 
   get name(): string {
     return this._name;
@@ -82,7 +76,6 @@ export class WaterSubscriber extends SubscriberObserver {
     }
   }
 }
-
 export class FireSubscriber extends SubscriberObserver {
   constructor(name: string) {
     super(name);
